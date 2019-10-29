@@ -1,5 +1,5 @@
-original = "python2_lesson06_keys.pkl"
-destination ="python2_lesson06_keys_unix.pkl"
+original = "final_project_dataset_modified.pkl"
+destination ="final_project_dataset_modified_unix.pkl"
 content = ''
 outsize = 0
 with open(original, 'rb') as infile:

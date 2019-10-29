@@ -3,6 +3,8 @@
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
 from class_vis import prettyPicture
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.metrics import accuracy_score
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
@@ -33,12 +35,15 @@ plt.show()
 
 
 
+clf = AdaBoostClassifier(n_estimators=100,random_state=0)
+clf.fit(features_train,labels_train)
+pred = clf.predict(features_test)
+print(accuracy_score(labels_test,pred,normalize=True))
 
 
+prettyPicture(clf, features_test, labels_test)
 
-
-
-try:
-    prettyPicture(clf, features_test, labels_test)
-except NameError:
-    pass
+# try:
+#     prettyPicture(clf, features_test, labels_test)
+# except NameError:
+#     pass
